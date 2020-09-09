@@ -8,9 +8,10 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Styles -->
-        <style>
+        {{-- <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -61,10 +62,12 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-        </style>
+        </style> --}}
     </head>
     <body>
-      @yield('main_content')
+      <section>
+        @yield('main_content')
+      </section>
 
     </body>
 </html>
