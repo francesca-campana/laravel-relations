@@ -2,7 +2,7 @@
 @section('main_content')
 
 
-<div class="banner">
+<div class="banner_fixed">
   <h1>Lista album</h1>
 </div>
 
@@ -10,13 +10,19 @@
   <ul class="album-item">
 
     @foreach ($albums as $album)
-      <li>
+      <li class="list_style">
 
         <div class="">
           <img src="{{ $album->cover->url }}" alt="{{ $album->title }}">
         </div>
         <h4 class="title">Titolo: {{ $album->title }}</h4>
-        <a href="{{ route('albums.show', $album) }}">Mostra dettagli album</a>
+        <div>
+          <a href="{{ route('albums.show', $album) }}">Mostra dettagli album</a>
+        </div>
+        <div>
+          <a href="{{ route('albums.edit', $album) }}">Modifica album</a>
+        </div>
+
       </li>
 
 

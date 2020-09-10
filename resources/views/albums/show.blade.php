@@ -20,26 +20,23 @@
   <div class="cover">
     <img src="{{ $album->cover->url }}" alt="{{ $album->title }}">
   </div>
-  <div class="">
-    <ul>
-      @foreach ($album->genres as $genre)
-        <li>
-          <h3>Genere: {{ $genre->name}}</h3>
-        </li>
-      @endforeach
-    </ul>
 
-  </div>
-
-  <div>
+  <div class="list_songs">
     <h2>Lista canzoni</h2>
-    
     <ul>
       @foreach ($album->song as $song)
-        <li>
-          <h4>Titolo: {{ $song->title }}</h4>
-        </li>
+        <li>{{ $song->title }}</li>
+      @endforeach
+    </ul>
+  </div>
+</div>
 
+<div class="generi">
+  <h4>Genere</h4>
+  <div>
+    <ul>
+      @foreach ($album->genres as $genre)
+        <li>{{ $genre->name}}</li>
       @endforeach
     </ul>
 

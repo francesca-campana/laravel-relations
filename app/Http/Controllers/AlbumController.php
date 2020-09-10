@@ -61,11 +61,17 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Album $album)
     {
-      $albums = Album::all();
+
       $genres = Genre::all();
       //dd($genres);
+
+      return view('albums.edit', [
+          'album' => $album,
+          'genres' => $genres,
+
+        ]);
     }
 
     /**
@@ -75,9 +81,22 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Album $album)
     {
-        //
+      $data = $request->all();
+
+      if (isset($data['genres'])) {
+        $album->genres()->sync($data['genres']);
+      } else {
+        $album->genres()->detach();
+      }
+
+      // Salvo la data e ora attuale in updated_at
+      // $post->updated_at = Carbon::now();
+
+      $album->update($data);
+
+      return redirect()->route('albums.show', $album);
     }
 
     /**
@@ -86,8 +105,11 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Album $album)
     {
-        //
+      // $album->genres()->detach();
+      // $album->delete();
+
+      //return redirect()->route('albums.index');
     }
 }
