@@ -5,6 +5,7 @@
 <div class="banner">
   <h1>Lista album</h1>
 </div>
+
 <div class="lista-album">
   <ul class="album-item">
 

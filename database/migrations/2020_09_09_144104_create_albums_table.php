@@ -19,6 +19,12 @@ class CreateAlbumsTable extends Migration
             $table->string('artist');
             $table->integer('year');
             $table->timestamps();
+
+            // $table->unsignedBigInteger('genre_id');
+            //
+            // $table->foreign('genre_id')
+            // ->references('id')
+            // ->on('genres');
         });
     }
 

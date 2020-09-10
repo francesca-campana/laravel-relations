@@ -15,10 +15,11 @@ class CreateCoversTable extends Migration
     {
         Schema::create('covers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('album_id');
             $table->string('url');
             $table->timestamps();
 
+            $table->unsignedBigInteger('album_id');
+            
             $table->foreign('album_id')
             ->references('id')
             ->on('albums');
