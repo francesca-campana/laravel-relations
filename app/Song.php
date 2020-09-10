@@ -8,7 +8,6 @@ class Song extends Model
 {
     protected $fillable = [
       'title',
-      'genre',
       'album_id',
     ];
 

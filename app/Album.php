@@ -17,7 +17,13 @@ class Album extends Model
     return $this->hasOne('App\Cover');
   }
 
-  public function song()
-{
-  return $this->hasMany('App\Song');
-}}
+  public function song(){
+
+    return $this->hasMany('App\Song');
+  }
+
+  public function genres() {
+
+    return $this->belongsToMany('App\Genre');
+  }
+}

@@ -16,7 +16,7 @@
     <ul>
       @foreach ($album->song as $song)
         <li>
-          <h4>{{ $song->title }}</h4>
+          <h4>Titolo: {{ $song->title }}</h4>
         </li>
 
       @endforeach
